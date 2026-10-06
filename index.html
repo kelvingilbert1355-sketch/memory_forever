@@ -29,7 +29,7 @@
 </head>
 <body class="text-slate-800 min-h-screen flex flex-col pb-12">
 
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar (Tanpa Tombol Tambah Momen) -->
     <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -38,27 +38,22 @@
                 </div>
                 <div>
                     <h1 class="font-serif-custom text-xl font-bold text-slate-900 leading-tight">Kenangan Kita</h1>
-                    <p class="text-xs text-slate-500">Koleksi Momen & Pesan Kesan</p>
+                    <p class="text-xs text-slate-500">Album Kenangan & Pesan Kesan</p>
                 </div>
             </div>
-            
-            <button onclick="openUploadModal()" class="flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow-md shadow-rose-100 transition active:scale-95">
-                <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                <span>Tambah Momen</span>
-            </button>
         </div>
     </header>
 
-    <!-- Hero / Sub-header -->
+    <!-- Hero Section -->
     <section class="max-w-5xl mx-auto px-4 pt-6 pb-2">
         <div class="bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-rose-100 relative overflow-hidden">
             <div class="relative z-10 max-w-xl">
                 <span class="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-medium px-3 py-1 rounded-full mb-3">
-                    ✨ Album Kenangan Abadi
+                    ✨ Special Memories
                 </span>
                 <h2 class="font-serif-custom text-2xl sm:text-4xl font-bold mb-2">Simpan Momen Indah Bersama</h2>
                 <p class="text-rose-100 text-xs sm:text-sm leading-relaxed">
-                    Setiap momen punya cerita, dan setiap foto menyimpan sejuta makna. Bagikan foto serta pesan & kesan kamu di sini!
+                    Setiap momen punya cerita, dan setiap foto menyimpan sejuta makna. Klik foto untuk melihat kenangan serta pesan & kesan di dalamnya!
                 </p>
             </div>
             <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
@@ -109,81 +104,10 @@
             <div class="w-16 h-16 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <i data-lucide="image-off" class="w-8 h-8"></i>
             </div>
-            <h3 class="text-base font-bold text-slate-800 mb-1">Belum Ada Momen</h3>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto mb-6">Belum ada foto atau catatan kenangan yang sesuai. Yuk tambahkan momen pertama kamu!</p>
-            <button onclick="openUploadModal()" class="inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-md transition">
-                <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                <span>Tambah Momen Baru</span>
-            </button>
+            <h3 class="text-base font-bold text-slate-800 mb-1">Momen Tidak Ditemukan</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">Tidak ada kenangan yang cocok dengan kata kunci atau kategori yang dipilih.</p>
         </div>
     </main>
-
-    <!-- Modal Upload -->
-    <div id="uploadModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
-            <button onclick="closeUploadModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <h3 class="font-serif-custom text-xl font-bold text-slate-900 mb-1">Tambah Momen Baru</h3>
-            <p class="text-xs text-slate-500 mb-5">Unggah foto dan tuliskan cerita atau pesan & kesan kamu.</p>
-
-            <form id="uploadForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Judul Momen *</label>
-                    <input type="text" id="titleInput" required placeholder="Contoh: KKN Batu Ampar 2026" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500">
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Tanggal *</label>
-                        <input type="date" id="dateInput" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Kategori *</label>
-                        <select id="categoryInput" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500">
-                            <option value="Liburan">Liburan</option>
-                            <option value="Nongkrong">Nongkrong</option>
-                            <option value="Spesial" selected>Spesial</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Lokasi</label>
-                    <input type="text" id="locationInput" placeholder="Contoh: Balikpapan" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Deskripsi Singkat</label>
-                    <textarea id="descInput" rows="2" placeholder="Ceritakan singkat momen ini..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"></textarea>
-                </div>
-
-                <!-- Fitur Pesan & Kesan -->
-                <div>
-                    <label class="block text-xs font-semibold text-rose-600 mb-1">Note (Pesan & Kesan)</label>
-                    <textarea id="noteInput" rows="2" placeholder="Tuliskan pesan & kesan khusus untuk momen ini..." class="w-full px-3.5 py-2.5 bg-rose-50/50 border border-rose-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Pilih Foto *</label>
-                    <input type="file" id="fileInput" multiple accept="image/*" onchange="handleFileSelect(event)" class="hidden">
-                    <div onclick="document.getElementById('fileInput').click()" class="border-2 border-dashed border-slate-200 hover:border-rose-400 bg-slate-50/50 rounded-2xl p-4 text-center cursor-pointer transition">
-                        <i data-lucide="upload-cloud" class="w-6 h-6 text-slate-400 mx-auto mb-1"></i>
-                        <span class="text-xs font-medium text-slate-600 block">Klik untuk pilih foto dari HP/Komputer</span>
-                        <span class="text-[10px] text-slate-400 block mt-0.5">Bisa pilih lebih dari 1 foto sekaligus</span>
-                    </div>
-                    <div id="imagePreviewContainer" class="flex flex-wrap gap-2 mt-3"></div>
-                </div>
-
-                <div class="pt-2 flex gap-3">
-                    <button type="button" onclick="closeUploadModal()" class="w-1/2 py-2.5 border border-slate-200 text-slate-600 text-xs font-semibold rounded-xl hover:bg-slate-50 transition">Batal</button>
-                    <button type="submit" class="w-1/2 py-2.5 bg-rose-500 hover:bg-rose-600 text-white text-xs font-semibold rounded-xl shadow-md transition">Simpan Momen</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- Modal Lightbox (Preview Foto Besar) -->
     <div id="lightboxModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex flex-col justify-between p-4">
@@ -204,79 +128,51 @@
         <div id="lightboxThumbnails" class="flex justify-center gap-2 overflow-x-auto py-2"></div>
     </div>
 
-    <!-- Script Application Logic -->
+    <!-- Script Data & Tampilan -->
     <script>
-        // DATA MANUAL (Bawaan Utama yang Muncul untuk Semua Pengunjung)
-        const defaultMemories = [
+        // DATA FOTO DAN PESAN KESAN (Edit Manual Di Sini)
+        const memoriesData = [
             {
-                id: "def-1",
+                id: "1",
                 title: "Kunjungan KKN Batu Ampar",
                 date: "2026-08-15",
                 category: "Spesial",
                 location: "Balikpapan Utara",
-                description: "Momen seru diskusi program kerja bersama warga dan tokoh masyarakat di RT 12.",
-                note: "Pesan & Kesan: Momen ini sangat berkesan karena kita belajar berbaur dan disambut hangat oleh seluruh warga!",
+                description: "Momen diskusi program kerja bersama warga dan tokoh masyarakat di RT 12.",
+                note: "Pesan & Kesan: Momen ini sangat berkesan karena kita belajar berbaur dan disambut hangat oleh seluruh warga setempat!",
                 images: [
                     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop",
                     "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&auto=format&fit=crop"
                 ]
             },
             {
-                id: "def-2",
-                title: "Nongkrong Santai di Pantai",
+                id: "2",
+                title: "Nongkrong Santai Sambil Menikmati Sunset",
                 date: "2026-05-20",
                 category: "Liburan",
                 location: "Pantai Manggar",
-                description: "Menikmati angin sore dan es kelapa muda setelah ujian semester selesai.",
-                note: "Pesan & Kesan: Paling seru saat momen sunset tiba, semua cerita terasa lebih hangat.",
+                description: "Menikmati angin sore dan es kelapa muda setelah ujian selesai.",
+                note: "Pesan & Kesan: Paling seru saat momen sunset tiba, semua cerita dan tawa terasa lebih berharga.",
                 images: [
                     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop"
                 ]
             }
+            // Kamu tinggal menambah objek foto baru di bawah sini...
         ];
 
         let currentCategory = 'Semua';
         let currentViewMode = 'grid';
-        let selectedFilesBase64 = [];
-        let userMemories = [];
 
-        // Inisialisasi saat Halaman Dimuat
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('dateInput').valueAsDate = new Date();
-            loadMemories();
+            renderMemories();
         });
 
-        // Muat Data dari LocalStorage + Default Data
-        function loadMemories() {
-            const stored = localStorage.getItem('kenangan_kita_data');
-            if (stored) {
-                try {
-                    userMemories = JSON.parse(stored);
-                } catch (e) {
-                    userMemories = [];
-                }
-            }
-            renderMemories();
-        }
-
-        // Simpan Data User ke LocalStorage
-        function saveUserMemories() {
-            localStorage.setItem('kenangan_kita_data', JSON.stringify(userMemories));
-            renderMemories();
-        }
-
-        // Ambil Gabungan Data
-        function getAllMemories() {
-            return [...userMemories, ...defaultMemories];
-        }
-
-        // Render Tampilan Utama
         function renderMemories() {
             const searchVal = document.getElementById('searchInput').value.toLowerCase();
             const container = document.getElementById('memoriesContainer');
             const emptyState = document.getElementById('emptyState');
 
-            let filtered = getAllMemories().filter(item => {
+            let filtered = memoriesData.filter(item => {
                 const matchCat = (currentCategory === 'Semua') || (item.category === currentCategory);
                 const matchSearch = (item.title && item.title.toLowerCase().includes(searchVal)) ||
                                     (item.description && item.description.toLowerCase().includes(searchVal)) ||
@@ -285,7 +181,6 @@
                 return matchCat && matchSearch;
             });
 
-            // Urutkan dari Tanggal Terbaru
             filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             if (filtered.length === 0) {
@@ -307,16 +202,10 @@
             lucide.createIcons();
         }
 
-        // Format HTML Kartu Grid
         function renderGridCard(item) {
             const coverImg = (item.images && item.images.length > 0) ? item.images[0] : 'https://placehold.co/600x400?text=No+Photo';
             const countBadge = (item.images && item.images.length > 1) 
                 ? `<span class="absolute top-3 right-3 bg-slate-900/70 backdrop-blur-md text-white text-[10px] font-semibold px-2 py-1 rounded-full flex items-center gap-1"><i data-lucide="layers" class="w-3 h-3"></i> ${item.images.length}</span>` 
-                : '';
-
-            const isUserItem = !item.id.startsWith('def-');
-            const deleteBtn = isUserItem 
-                ? `<button onclick="deleteMemory('${item.id}')" title="Hapus Momen" class="text-slate-400 hover:text-rose-500 p-1"><i data-lucide="trash-2" class="w-4 h-4"></i></button>`
                 : '';
 
             return `
@@ -339,23 +228,21 @@
 
                         ${item.note ? `
                             <div class="mt-auto bg-rose-50/60 border border-rose-100 rounded-2xl p-3 text-xs text-rose-900">
-                                <span class="font-bold block text-[10px] text-rose-500 uppercase tracking-wider mb-0.5">Note / Pesan Kesan</span>
+                                <span class="font-bold block text-[10px] text-rose-500 uppercase tracking-wider mb-0.5">Pesan & Kesan</span>
                                 <p class="italic leading-relaxed">"${item.note}"</p>
                             </div>
                         ` : '<div class="mt-auto"></div>'}
 
-                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-end">
                             <button onclick="openLightbox('${item.id}')" class="text-xs font-semibold text-rose-500 hover:text-rose-600 flex items-center gap-1">
-                                Lihat Galeri <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                Lihat Foto Lengkap <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                             </button>
-                            ${deleteBtn}
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // Format HTML Kartu Timeline
         function renderTimelineCard(item) {
             const coverImg = (item.images && item.images.length > 0) ? item.images[0] : '';
             return `
@@ -376,7 +263,6 @@
             `;
         }
 
-        // Filter & Switcher
         function setCategory(cat) {
             currentCategory = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -396,73 +282,8 @@
             renderMemories();
         }
 
-        // Modal Handlers
-        function openUploadModal() {
-            document.getElementById('uploadModal').classList.remove('hidden');
-        }
-
-        function closeUploadModal() {
-            document.getElementById('uploadModal').classList.add('hidden');
-            document.getElementById('uploadForm').reset();
-            selectedFilesBase64 = [];
-            document.getElementById('imagePreviewContainer').innerHTML = '';
-        }
-
-        // Convert Uploaded Files to Base64
-        function handleFileSelect(e) {
-            const files = Array.from(e.target.files);
-            const container = document.getElementById('imagePreviewContainer');
-            
-            files.forEach(file => {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const base64 = event.target.result;
-                    selectedFilesBase64.push(base64);
-
-                    const prev = document.createElement('div');
-                    prev.className = 'relative w-16 h-16 rounded-lg overflow-hidden border border-slate-200';
-                    prev.innerHTML = `<img src="${base64}" class="w-full h-full object-cover">`;
-                    container.appendChild(prev);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        // Handle Form Submit
-        function handleFormSubmit(e) {
-            e.preventDefault();
-
-            if (selectedFilesBase64.length === 0) {
-                alert('Pilih minimal 1 foto!');
-                return;
-            }
-
-            const newMemory = {
-                id: 'usr-' + Date.now(),
-                title: document.getElementById('titleInput').value,
-                date: document.getElementById('dateInput').value,
-                category: document.getElementById('categoryInput').value,
-                location: document.getElementById('locationInput').value,
-                description: document.getElementById('descInput').value,
-                note: document.getElementById('noteInput').value,
-                images: [...selectedFilesBase64]
-            };
-
-            userMemories.unshift(newMemory);
-            saveUserMemories();
-            closeUploadModal();
-        }
-
-        function deleteMemory(id) {
-            if (confirm('Apakah kamu yakin ingin menghapus momen ini?')) {
-                userMemories = userMemories.filter(m => m.id !== id);
-                saveUserMemories();
-            }
-        }
-
-        // Lightbox Handler
         function openLightbox(id) {
-            const item = getAllMemories().find(m => m.id === id);
+            const item = memoriesData.find(m => m.id === id);
             if (!item || !item.images || item.images.length === 0) return;
 
             document.getElementById('lightboxTitle').innerText = item.title;
@@ -472,7 +293,7 @@
             mainImg.src = item.images[0];
 
             const thumbContainer = document.getElementById('lightboxThumbnails');
-            thumbContainer.innerHTML = item.images.map((img, idx) => `
+            thumbContainer.innerHTML = item.images.map((img) => `
                 <img src="${img}" onclick="document.getElementById('lightboxImg').src='${img}'" class="w-12 h-12 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-rose-500">
             `).join('');
 
@@ -483,7 +304,6 @@
             document.getElementById('lightboxModal').classList.add('hidden');
         }
 
-        // Utility: Format Date
         function formatDate(dateStr) {
             if (!dateStr) return '';
             const options = { day: 'numeric', month: 'short', year: 'numeric' };
